@@ -1,6 +1,6 @@
 package com.lambton.Vehicle;
 
-public abstract class  Vehicle {
+public class Car extends Vehicle {
 
 
 
