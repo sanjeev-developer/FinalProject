@@ -2,10 +2,10 @@ package employee;
 
 public class PartTime {
 
-    Float salary;
-    Float bonus;
+    float salary;
+    float bonus;
 
-    public Float calculateearning()
+    public float calculateearning()
     {
         return salary+bonus;
     }
