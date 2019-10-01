@@ -6,13 +6,13 @@ public abstract class Employee {
     Float Age;
     int totalearning;
 
-    public String calculatebirthyear()
+    public String calcBirthYear()
     {
 
         return Name;
     }
 
-    public int calculateearning()
+    public int calcEarnings()
     {
 
         return totalearning;

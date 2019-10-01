@@ -1,9 +1,15 @@
 package employee;
 
-public class FixedBasedPartTime {
-    double fixedAmount;
-    public void calcEarnings(float rate, float hoursWorked , float fixedAmount)
+public class FixedBasedPartTime extends PartTime{
+    float fixedAmount;
+
+    public double getFixedAmount() {
+        return fixedAmount;
+    }
+
+
+    public float calcEarnings(float rate, float hoursWorked , float fixedAmount)
     {
-        //return(rate*hoursWORKED) + commission
+        return(rate * hoursWorked) + fixedAmount;
     }
 }

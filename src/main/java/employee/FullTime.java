@@ -2,6 +2,11 @@ package employee;
 
 public class FullTime {
 
-    int rate;
-    int hourworked;
+    float salary;
+    float bonus;
+    public float calcEarnings()
+    {
+
+        return salary+bonus;
+    }
 }
