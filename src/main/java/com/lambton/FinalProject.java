@@ -8,6 +8,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
+//import org.json.JSONObject;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -26,7 +27,11 @@ public class FinalProject {
             JSONArray employee= (JSONArray) obj;
             System.out.println(employee);
 
-            employee.forEach( emp -> parseEmployeeObject( (JSONObject) emp ) );
+           //employee.forEach( emp -> parseEmployeeObject( (JSONObject) emp ) );
+            for(int i=0; i<employee.size();i++)
+            {
+                parseEmployeeObject((JSONObject) employee.get(i));
+            }
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -40,19 +45,21 @@ public class FinalProject {
     private static void parseEmployeeObject(JSONObject employee)
     {
         //Get employee object within list
-        JSONObject employeeObject = (JSONObject) employee.get("employee");
+        JSONObject employeeObject = employee;
 
         //Get employee first name
-        String firstName = (String) employeeObject.get("firstName");
+        String firstName = (String) employeeObject.get("name");
         System.out.println(firstName);
 
         //Get employee last name
-        String lastName = (String) employeeObject.get("HAS A " + employeeObject.get("@class"));
-        System.out.println(lastName);
+        
+        //JSONObject vehicle= employeeObject.getJSONObject("Vehicle");
+        //String lastName = (String) employeeObject.get("HAS A " + vehicle.get("@class"));
+       // System.out.println(lastName);
 
         //Get employee website name
-        String website = (String) employeeObject.get("website");
-        System.out.println(website);
+        //String website = (String) employeeObject.get("website");
+        //System.out.println(website);
     }
 
     }
