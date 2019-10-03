@@ -1,6 +1,8 @@
-package com.lambton.Vehicle;
+package vehicle;
 
-public abstract class  Vehicle
+import com.lambton.iPrintable;
+
+public abstract class Vehicle implements iPrintable
 {
         String make;
         String Plate;
@@ -19,5 +21,11 @@ public abstract class  Vehicle
 
     public void setPlate(String plate) {
         Plate = plate;
+    }
+
+
+    @Override
+    public void display() {
+        System.out.println("Vehicle type");
     }
 }

@@ -1,4 +1,4 @@
-package com.lambton.Vehicle;
+package vehicle;
 
 public class Motorcycle extends Vehicle
 {
@@ -28,4 +28,5 @@ public class Motorcycle extends Vehicle
     public void setInsurance(Boolean insurance) {
         this.insurance = insurance;
     }
+
 }

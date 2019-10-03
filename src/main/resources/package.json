@@ -4,7 +4,7 @@
   "name": "Mitali",
   "age": 21,
   "vehicle": {
-    "@class": "ca.lambton.payroll.vehicle.Motorcycle",
+    "@class": "Motorcycle",
     "id": 0,
     "make": "Honda",
     "plate": "ABCD-123 ",
