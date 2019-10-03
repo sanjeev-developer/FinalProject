@@ -9,16 +9,19 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 //import org.json.JSONObject;
+//import org.json.JSONArray;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Iterator;
+import java.util.Objects;
 
 public class FinalProject {
 
-    public static void main(String args[])
+    public static void main(String[] args)
     {
-        File file = new File(FinalProject.class.getClassLoader().getResource("package.json").getFile());
+        File file = new File(Objects.requireNonNull(FinalProject.class.getClassLoader().getResource("package.json")).getFile());
         JSONParser jsonParser= new JSONParser();
         try(FileReader reader = new FileReader(file))
         {
@@ -27,11 +30,11 @@ public class FinalProject {
             JSONArray employee= (JSONArray) obj;
             System.out.println(employee);
 
-           //employee.forEach( emp -> parseEmployeeObject( (JSONObject) emp ) );
-            for(int i=0; i<employee.size();i++)
+           employee.forEach( emp -> parseEmployeeObject( (JSONObject) emp ) );
+           /* for(int i=0; i<employee.size();i++)
             {
-                parseEmployeeObject((JSONObject) employee.get(i));
-            }
+                parseEmployeeObject( (JSONObject) employee.get(i));
+            }*/
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -39,11 +42,12 @@ public class FinalProject {
             e.printStackTrace();
         }catch (ParseException e) {
             e.printStackTrace();
+        }catch (NullPointerException e){
+            e.getMessage();
         }
 
     }
-    private static void parseEmployeeObject(JSONObject employee)
-    {
+    private static void parseEmployeeObject(JSONObject employee) {
         //Get employee object within list
         JSONObject employeeObject = employee;
 
@@ -53,9 +57,12 @@ public class FinalProject {
 
         //Get employee last name
         
-        //JSONObject vehicle= employeeObject.getJSONObject("Vehicle");
-        //String lastName = (String) employeeObject.get("HAS A " + vehicle.get("@class"));
-       // System.out.println(lastName);
+        JSONObject vehicle= (JSONObject) employeeObject.get("vehicle");
+        if(vehicle == null)
+            System.out.println("Has no vehicle");
+        String vehicleName = (String) vehicle.get("@class");
+
+        System.out.println("Has a " + vehicleName);
 
         //Get employee website name
         //String website = (String) employeeObject.get("website");
