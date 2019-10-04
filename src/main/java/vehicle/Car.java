@@ -22,7 +22,7 @@ public class Car extends Vehicle implements iPrintable
     @Override
     public void display() {
 
-        System.out.println("Vehicle type :" +jsonObject.get("type"));
+        System.out.println("Has a " +jsonObject.get("type"));
         System.out.println("Manufacturer: " + make );
         System.out.println("Licence Plate : " +Plate);
         System.out.println("Model :" +model);
