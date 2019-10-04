@@ -1,9 +1,24 @@
 package vehicle;
 
-public class Motorcycle extends Vehicle
+import com.lambton.iPrintable;
+import org.json.simple.JSONObject;
+
+public class Motorcycle extends Vehicle implements iPrintable
 {
-    String model, yearOfMake;
+
+
+    JSONObject jsonObject;
+    String model, make;
     Boolean insurance;
+
+    public Motorcycle(JSONObject jsonObject) {
+        this.jsonObject = jsonObject;
+        super.make= (String) jsonObject.get("make");
+        super.Plate = (String) jsonObject.get("plate");
+        model = (String) jsonObject.get("model");
+        insurance = (Boolean) jsonObject.get("insurance");
+    }
+
 
     public String getModel() {
         return model;
@@ -13,13 +28,7 @@ public class Motorcycle extends Vehicle
         this.model = model;
     }
 
-    public String getYearOfMake() {
-        return yearOfMake;
-    }
 
-    public void setYearOfMake(String yearOfMake) {
-        this.yearOfMake = yearOfMake;
-    }
 
     public Boolean getInsurance() {
         return insurance;
@@ -29,4 +38,9 @@ public class Motorcycle extends Vehicle
         this.insurance = insurance;
     }
 
+    @Override
+    public void display() {
+
+
+    }
 }
