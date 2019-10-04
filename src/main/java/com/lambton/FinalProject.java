@@ -7,6 +7,8 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+import vehicle.Car;
+import vehicle.Motorcycle;
 
 //import org.json.JSONObject;
 //import org.json.JSONArray;
@@ -55,14 +57,21 @@ public class FinalProject {
         String firstName = (String) employeeObject.get("name");
         System.out.println(firstName);
 
-        //Get employee last name
+        //Get employee vehicle details
         
         JSONObject vehicle= (JSONObject) employeeObject.get("vehicle");
         if(vehicle == null)
             System.out.println("Has no vehicle");
-        String vehicleName = (String) vehicle.get("@class");
 
-        System.out.println("Has a " + vehicleName);
+        String vehicleName = (String) vehicle.get("@class");
+        if(vehicleName.equalsIgnoreCase("motorcycle")) {
+            Motorcycle m= new Motorcycle(vehicle);
+            m.display();
+        }else
+        {
+            Car c= new
+        }
+        //System.out.println("Has a " + vehicleName);
 
         //Get employee website name
         //String website = (String) employeeObject.get("website");
