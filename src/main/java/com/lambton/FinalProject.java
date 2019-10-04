@@ -34,7 +34,7 @@ public class FinalProject {
             System.out.println(vehicleDetails);
 
             //iterating for each object
-            vehicleDetails.forEach(vd -> parseEmployeeObject( (JSONObject) vd) );
+            vehicleDetails.forEach(vd -> parseVehicleObject( (JSONObject) vd) );
 
         } catch (IOException | ParseException e) {
             e.printStackTrace();
@@ -43,7 +43,7 @@ public class FinalProject {
         }
 
     }
-    private static void parseEmployeeObject(JSONObject employeeVehicleDetails) {
+    private static void parseVehicleObject(JSONObject employeeVehicleDetails) {
         //Get employee first name
         String firstName = (String) employeeVehicleDetails.get("name");
         System.out.println(firstName);
