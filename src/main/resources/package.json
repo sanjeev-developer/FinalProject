@@ -4,7 +4,7 @@
   "name": "Mitali",
   "age": 21,
   "vehicle": {
-    "@class": "ca.lambton.payroll.vehicle.Motorcycle",
+    "@class": "Motorcycle",
     "id": 0,
     "make": "Honda",
     "plate": "ABCD-123 ",
@@ -21,7 +21,7 @@
     "name": "Pritesh",
     "age": 35,
     "vehicle": {
-      "@class": "ca.lambton.payroll.vehicle.Car",
+      "@class": "Car",
       "id": 0,
       "make": "BMW",
       "plate": "EFGH-123 ",
@@ -39,7 +39,7 @@
     "name": "Akshdeep kaur",
     "age": 24,
     "vehicle": {
-      "@class": "ca.lambton.payroll.vehicle.Motorcycle",
+      "@class": "Motorcycle",
       "id": 0,
       "make": "YAMATO",
       "plate": "EFGH-875 ",
