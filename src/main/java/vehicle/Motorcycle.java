@@ -20,27 +20,18 @@ public class Motorcycle extends Vehicle implements iPrintable
     }
 
 
-    public String getModel() {
-        return model;
-    }
 
-    public void setModel(String model) {
-        this.model = model;
-    }
-
-
-
-    public Boolean getInsurance() {
-        return insurance;
-    }
-
-    public void setInsurance(Boolean insurance) {
-        this.insurance = insurance;
-    }
 
     @Override
     public void display() {
-
+        System.out.println("Vehicle type :" +jsonObject.get("type") );
+        System.out.println("Manufacturer: " + make );
+        System.out.println("Licence Plate : " +Plate);
+        System.out.println("Model :" +model);
+        if(insurance=true)
+            System.out.println("Insurance : Yes");
+        else
+            System.out.println("Insurance : No");
 
     }
 }

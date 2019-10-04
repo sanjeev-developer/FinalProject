@@ -58,24 +58,19 @@ public class FinalProject {
         System.out.println(firstName);
 
         //Get employee vehicle details
-        
         JSONObject vehicle= (JSONObject) employeeObject.get("vehicle");
         if(vehicle == null)
             System.out.println("Has no vehicle");
-
         String vehicleName = (String) vehicle.get("@class");
         if(vehicleName.equalsIgnoreCase("motorcycle")) {
             Motorcycle m= new Motorcycle(vehicle);
             m.display();
         }else
         {
-            Car c= new
+            Car c= new Car(vehicle);
+            c.display();
         }
-        //System.out.println("Has a " + vehicleName);
 
-        //Get employee website name
-        //String website = (String) employeeObject.get("website");
-        //System.out.println(website);
     }
 
     }

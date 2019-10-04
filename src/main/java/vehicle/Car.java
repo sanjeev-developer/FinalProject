@@ -19,35 +19,10 @@ public class Car extends Vehicle implements iPrintable
     }
 
 
-
-    public String getModel() {
-        return model;
-    }
-
-    public void setModel(String model) {
-        this.model = model;
-    }
-
-    public String getYearOfMake() {
-        return yearOfMake;
-    }
-
-    public void setYearOfMake(String yearOfMake) {
-        this.yearOfMake = yearOfMake;
-    }
-
-    public Boolean getInsurance() {
-        return insurance;
-    }
-
-    public void setInsurance(Boolean insurance) {
-        this.insurance = insurance;
-    }
-
     @Override
     public void display() {
 
-        System.out.println("Vehicle type :" );
+        System.out.println("Vehicle type :" +jsonObject.get("type"));
         System.out.println("Manufacturer: " + make );
         System.out.println("Licence Plate : " +Plate);
         System.out.println("Model :" +model);
