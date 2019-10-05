@@ -23,13 +23,14 @@ public class JsonReader {
 
          double total =0;
         File file = new File(Objects.requireNonNull(FinalProject.class.getClassLoader().getResource("package.json")).getFile());
+        System.out.println(file);
+
         JSONParser jsonParser = new JSONParser();
         try (FileReader reader = new FileReader(file)) {
 
             //storing object in JSON array
             Object obj = jsonParser.parse(reader);
             JSONArray employeeDetails = (JSONArray) obj;
-            System.out.println(employeeDetails);
 
             //iterating for each object
             //employeeDetails.forEach(vd -> parseEmployeeObject((JSONObject) vd));
@@ -57,14 +58,14 @@ public class JsonReader {
         System.out.println("Employee Name : " + firstName);
 
         //calculate birth year
-        Intern i = new Intern(employeeDetails);
-        System.out.println("Birth Year:" +i.birthYear);
+       // Intern i = new Intern(employeeDetails);
+        //System.out.println("Birth Year:" +i.birthYear);
 
 
         //Get employee vehicle details
 
         //getting vehicle object
-        JSONObject vehicle = (JSONObject) employeeDetails.get("vehicle");
+        /*JSONObject vehicle = (JSONObject) employeeDetails.get("vehicle");
         if (vehicle == null) {
             System.out.println("Employee has no vehicle registered");
         }else {
@@ -77,7 +78,7 @@ public class JsonReader {
                 Car c = new Car(vehicle);
                 c.display();
             }
-        }
+        }*/
 
         //get employee salary details
 
@@ -86,8 +87,13 @@ public class JsonReader {
 
         //create class on the basis of the type of employee
         if(eType.equalsIgnoreCase("intern")){
-            Intern i1 = new Intern(employeeDetails);
-            i.display();
+            Intern i1 = new Intern();
+
+            i1.seteType((String) employeeDetails.get("type"));
+            i1.setSchoolname((String) employeeDetails.get("schoolName"));
+            i1.setVehicle(employeeDetails);
+
+            i1.display();
             total=total+i1.total;
         }
         if (eType.equalsIgnoreCase("fulltime")){

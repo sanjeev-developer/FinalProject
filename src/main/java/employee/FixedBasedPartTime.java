@@ -2,6 +2,8 @@ package employee;
 
 import com.lambton.iPrintable;
 import org.json.simple.JSONObject;
+import vehicle.Car;
+import vehicle.Motorcycle;
 
 public class FixedBasedPartTime extends PartTime implements iPrintable {
 
@@ -9,6 +11,39 @@ public class FixedBasedPartTime extends PartTime implements iPrintable {
     double fixed;
     public double total;
     String s;
+    JSONObject vehicle = new JSONObject();
+
+    public double getFixed() {
+        return fixed;
+    }
+
+    public void setFixed(double fixed) {
+        this.fixed = fixed;
+    }
+
+    public double getTotal() {
+        return total;
+    }
+
+    public void setTotal(double total) {
+        this.total = total;
+    }
+
+    public String getS() {
+        return s;
+    }
+
+    public void setS(String s) {
+        this.s = s;
+    }
+
+    public JSONObject getVehicle() {
+        return vehicle;
+    }
+
+    public void setVehicle(JSONObject vehicle) {
+        this.vehicle = vehicle;
+    }
 
     public FixedBasedPartTime(JSONObject jsonObject){
         super.rate= (double) jsonObject.get("rate");
@@ -16,6 +51,21 @@ public class FixedBasedPartTime extends PartTime implements iPrintable {
         fixed= (double) jsonObject.get("fixedAmount");
         total= calculateearning();
         s= (String) jsonObject.get("type");
+        vehicle= (JSONObject) jsonObject.get("vehicle");
+        if (vehicle == null) {
+            System.out.println("Employee has no vehicle registered");
+        }else {
+            //creating object of appropriate class
+            String vehicleName = (String) vehicle.get("@class");
+            if (vehicleName.equalsIgnoreCase("motorcycle")) {
+                Motorcycle m = new Motorcycle(vehicle);
+                m.display();
+            } else {
+                Car c = new Car(vehicle);
+                c.display();
+            }
+        }
+
 
     }
 

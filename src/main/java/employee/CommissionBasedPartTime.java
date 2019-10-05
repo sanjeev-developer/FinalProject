@@ -2,12 +2,16 @@ package employee;
 
 import com.lambton.iPrintable;
 import org.json.simple.JSONObject;
+import vehicle.Car;
+import vehicle.Motorcycle;
 
 public class CommissionBasedPartTime extends PartTime implements iPrintable
 {
     long commission;
             public double total;
     String s;
+    JSONObject vehicle = new JSONObject();
+
     public CommissionBasedPartTime(JSONObject jsonObject)
     {
         super.rate= (double) jsonObject.get("rate");
@@ -15,6 +19,21 @@ public class CommissionBasedPartTime extends PartTime implements iPrintable
         commission = (long) jsonObject.get("commissionPercent");
         s=(String) jsonObject.get("type");
         total=calculateearning();
+        vehicle= (JSONObject) jsonObject.get("vehicle");
+        if (vehicle == null) {
+            System.out.println("Employee has no vehicle registered");
+        }else {
+            //creating object of appropriate class
+            String vehicleName = (String) vehicle.get("@class");
+            if (vehicleName.equalsIgnoreCase("motorcycle")) {
+                Motorcycle m = new Motorcycle(vehicle);
+                m.display();
+            } else {
+                Car c = new Car(vehicle);
+                c.display();
+            }
+        }
+
     }
 
     @Override
