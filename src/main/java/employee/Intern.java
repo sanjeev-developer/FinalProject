@@ -1,6 +1,7 @@
 package employee;
 
 import com.lambton.iPrintable;
+import jdk.nashorn.internal.ir.IdentNode;
 import org.json.simple.JSONObject;
 import vehicle.Car;
 import vehicle.Motorcycle;
@@ -9,8 +10,12 @@ public class Intern extends Employee implements iPrintable {
 
     String schoolname , eType;
     public double total;
-    public int birthYear;
+    public long birthYear;
     JSONObject vehicle = new JSONObject();
+
+    public Intern(JSONObject jsonObject){
+        birthYear= super.calculatebirthyear((Long) jsonObject.get("age"));
+    }
 
     public Intern()
     {
@@ -62,11 +67,11 @@ public class Intern extends Employee implements iPrintable {
         this.total = total;
     }
 
-    public int getBirthYear() {
+    public long getBirthYear() {
         return birthYear;
     }
 
-    public void setBirthYear(int birthYear) {
+    public void setBirthYear(long birthYear) {
         this.birthYear = birthYear;
     }
 
@@ -76,6 +81,7 @@ public class Intern extends Employee implements iPrintable {
 
     public void setVehicle(JSONObject vehicle) {
         this.vehicle = vehicle;
+
         vehicle= (JSONObject) vehicle.get("vehicle");
         if (vehicle == null) {
             System.out.println("Employee has no vehicle registered");
@@ -93,11 +99,12 @@ public class Intern extends Employee implements iPrintable {
 
     }
 
+
     @Override
     public void display()
     {
         System.out.println("Employee is " +eType);
-        //System.out.println("Birth year :" + birthYear);
+        System.out.println("Birth year :" + super.calculatebirthyear(birthYear));
         System.out.println("    School Name: " +schoolname);
         System.out.println("    Earnings :" + calculateearning());
         System.out.println("******************************************************************");

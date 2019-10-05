@@ -6,9 +6,9 @@ public abstract class Employee {
      long age;
     int totalearning;
 
-    public int calculatebirthyear( int i)
+    public long calculatebirthyear( long i)
     {
-        int x= 2019 - i;
+        long x= 2019 - i;
         return x;
     }
 

@@ -58,8 +58,8 @@ public class JsonReader {
         System.out.println("Employee Name : " + firstName);
 
         //calculate birth year
-       // Intern i = new Intern(employeeDetails);
-        //System.out.println("Birth Year:" +i.birthYear);
+       Intern i = new Intern(employeeDetails);
+       System.out.println("Birth Year:" +i.birthYear);
 
 
         //Get employee vehicle details
