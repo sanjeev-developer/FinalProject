@@ -6,12 +6,15 @@ import org.json.simple.JSONObject;
 import vehicle.Car;
 import vehicle.Motorcycle;
 
+import java.text.DecimalFormat;
+
 public class Intern extends Employee implements iPrintable {
 
     String schoolname , eType;
     public double total;
     public long birthYear;
     JSONObject vehicle = new JSONObject();
+    DecimalFormat chosenFormat = new DecimalFormat("#,###");
 
     public Intern(JSONObject jsonObject){
         birthYear= super.calculatebirthyear((Long) jsonObject.get("age"));
@@ -81,6 +84,24 @@ public class Intern extends Employee implements iPrintable {
 
     public void setVehicle(JSONObject vehicle) {
         this.vehicle = vehicle;
+        checkVehicle();
+
+
+    }
+
+
+    @Override
+    public void display()
+    {
+        System.out.println("Employee is " +eType);
+        System.out.println("Birth year :" + super.calculatebirthyear(birthYear));
+        System.out.println("    School Name: " +schoolname);
+        System.out.println("    Earnings : $" + chosenFormat.format(calculateearning()));
+        System.out.println("******************************************************************");
+
+    }
+
+    public void checkVehicle() {
 
         vehicle= (JSONObject) vehicle.get("vehicle");
         if (vehicle == null) {
@@ -100,14 +121,4 @@ public class Intern extends Employee implements iPrintable {
     }
 
 
-    @Override
-    public void display()
-    {
-        System.out.println("Employee is " +eType);
-        System.out.println("Birth year :" + super.calculatebirthyear(birthYear));
-        System.out.println("    School Name: " +schoolname);
-        System.out.println("    Earnings :" + calculateearning());
-        System.out.println("******************************************************************");
-
-    }
 }

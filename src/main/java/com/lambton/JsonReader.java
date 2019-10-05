@@ -14,13 +14,14 @@ import vehicle.Motorcycle;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.text.DecimalFormat;
 import java.util.Objects;
 public class JsonReader {
 
     public JsonReader() {
 
 
-
+        DecimalFormat chosenFormat = new DecimalFormat("#,###");
          double total =0;
         File file = new File(Objects.requireNonNull(FinalProject.class.getClassLoader().getResource("package.json")).getFile());
         System.out.println(file);
@@ -40,7 +41,7 @@ public class JsonReader {
                 total=total+parseEmployeeObject((JSONObject) employeeDetails.get(i));
 
             }
-            System.out.println("Total Payroll:" +total+ " Canadian Dollars");
+            System.out.println("Total Payroll:" +chosenFormat.format(total)+ " Canadian Dollars");
 
 
         } catch (IOException | ParseException e) {

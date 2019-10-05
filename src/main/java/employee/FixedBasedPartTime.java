@@ -5,6 +5,8 @@ import org.json.simple.JSONObject;
 import vehicle.Car;
 import vehicle.Motorcycle;
 
+import java.text.DecimalFormat;
+
 public class FixedBasedPartTime extends PartTime implements iPrintable {
 
 
@@ -12,6 +14,7 @@ public class FixedBasedPartTime extends PartTime implements iPrintable {
     public double total;
     String s;
     JSONObject vehicle = new JSONObject();
+    DecimalFormat chosenFormat = new DecimalFormat("#,###");
 
     public double getFixed() {
         return fixed;
@@ -84,7 +87,7 @@ public class FixedBasedPartTime extends PartTime implements iPrintable {
         System.out.println("    Hourly Rate:" +rate);
         System.out.println("    Hours Worked:" +hWorked);
         System.out.println("    Fixed Amount:" +fixed);
-        System.out.println("    Total Earning:" +total);
+        System.out.println("    Total Earning: $" +chosenFormat.format(total));
         System.out.println("******************************************************************");
 
 

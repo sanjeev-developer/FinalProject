@@ -5,12 +5,15 @@ import org.json.simple.JSONObject;
 import vehicle.Car;
 import vehicle.Motorcycle;
 
+import java.text.DecimalFormat;
+
 public class CommissionBasedPartTime extends PartTime implements iPrintable
 {
     long commission;
             public double total;
     String s;
     JSONObject vehicle = new JSONObject();
+    DecimalFormat chosenFormat = new DecimalFormat("#,###");
 
     public CommissionBasedPartTime(JSONObject jsonObject)
     {
@@ -44,8 +47,8 @@ public class CommissionBasedPartTime extends PartTime implements iPrintable
         System.out.println("    Hours Worked:" +hWorked);
         System.out.println("    Earning:" +rate*hWorked);
         System.out.println("    Commission Percentage:" + commission + "%");
-        System.out.println("    Commission Earned:" +(rate*hWorked/100)*commission);
-        System.out.println("    Total Earning: " +total  );
+        System.out.println("    Commission Earned: $" +chosenFormat.format((rate*hWorked/100)*commission));
+        System.out.println("    Total Earning: $" +chosenFormat.format(total) );
         System.out.println("******************************************************************");
     }
 
