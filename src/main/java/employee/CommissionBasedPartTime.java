@@ -15,7 +15,6 @@ public class CommissionBasedPartTime extends PartTime implements iPrintable
         commission = (long) jsonObject.get("commissionPercent");
         s=(String) jsonObject.get("type");
         total=calculateearning();
-        System.out.println("object created");
     }
 
     @Override
