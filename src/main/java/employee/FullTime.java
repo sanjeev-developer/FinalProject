@@ -5,12 +5,15 @@ import org.json.simple.JSONObject;
 import vehicle.Car;
 import vehicle.Motorcycle;
 
+import java.text.DecimalFormat;
+
 public class FullTime extends Employee implements iPrintable {
 
     double salary,bonus;
     public double total;
     String s;
     JSONObject vehicle = new JSONObject();
+    DecimalFormat chosenFormat = new DecimalFormat("#,###");
 
 
     public FullTime(JSONObject jsonObject){
@@ -44,7 +47,7 @@ public class FullTime extends Employee implements iPrintable {
         System.out.println("Employee is " +s);
         System.out.println("    Salary:" +salary);
         System.out.println("    Bonus:" +bonus);
-        System.out.println("    Total Earning:" +total);
+        System.out.println("    Total Earning: $" +chosenFormat.format(total));
         System.out.println("******************************************************************");
     }
 
