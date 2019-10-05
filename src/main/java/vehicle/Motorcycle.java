@@ -8,7 +8,7 @@ public class Motorcycle extends Vehicle implements iPrintable
 
 
     JSONObject jsonObject;
-    String model, make;
+    String model,yearOfMake;
     Boolean insurance;
 
     public Motorcycle(JSONObject jsonObject) {
@@ -17,6 +17,7 @@ public class Motorcycle extends Vehicle implements iPrintable
         super.Plate = (String) jsonObject.get("plate");
         model = (String) jsonObject.get("model");
         insurance = (Boolean) jsonObject.get("insurance");
+        yearOfMake = (String) jsonObject.get("year");
     }
 
 
@@ -24,14 +25,18 @@ public class Motorcycle extends Vehicle implements iPrintable
 
     @Override
     public void display() {
-        System.out.println("Has a " +jsonObject.get("type") );
-        System.out.println("Manufacturer: " + make );
-        System.out.println("Licence Plate : " +Plate);
-        System.out.println("Model :" +model);
+
+        System.out.println("Employee has a " +jsonObject.get("type") );
+        System.out.println("    Manufacturer: " +make );
+        System.out.println("    Licence Plate : " +Plate);
+        System.out.println("    Model :" +model);
+        System.out.println("    Year Of Make : " +yearOfMake);
         if(insurance=true)
-            System.out.println("Insurance : Yes");
+            System.out.println("    Insurance : Yes");
         else
-            System.out.println("Insurance : No");
+            System.out.println("    Insurance : No");
+
+
 
     }
 }
