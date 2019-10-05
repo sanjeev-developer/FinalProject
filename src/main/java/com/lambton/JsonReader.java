@@ -33,7 +33,8 @@ public class JsonReader {
         }
     }
 
-    private static void parseVehicleObject(JSONObject employeeVehicleDetails) {
+    private static void parseVehicleObject(JSONObject employeeVehicleDetails)
+    {
         //Get employee first name
         String firstName = (String) employeeVehicleDetails.get("name");
         System.out.println(firstName);
@@ -50,7 +51,5 @@ public class JsonReader {
             Car c = new Car(vehicle);
             c.display();
         }
-
-
     }
 }
