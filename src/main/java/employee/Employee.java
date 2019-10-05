@@ -2,19 +2,19 @@ package employee;
 
 public abstract class Employee {
 
-    String Name;
-    Float Age;
+    String name;
+     long age;
     int totalearning;
 
-    public String calculatebirthyear()
+    public int calculatebirthyear( int i)
     {
-
-        return Name;
+        int x= 2019 - i;
+        return x;
     }
 
-    public int calculateearning()
+    public double calculateearning()
     {
 
-        return totalearning;
+        return 1000;
     }
 }

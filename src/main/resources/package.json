@@ -7,7 +7,7 @@
     "@class": "Motorcycle",
     "id": 0,
     "make": "Honda",
-    "plate": "ABCD-123 ",
+    "plate": "ABCD-123",
     "model": "MODEL 1",
     "year" : "2015",
     "insurance": true,
@@ -61,10 +61,11 @@
     "id": 4,
     "name": "Seongyeob",
     "age": 29,
-    "vehicle": null,
+
     "rate": 40.0,
     "hoursWorked": 178,
     "commissionPercent": 20,
-    "type": "PartTime / Commissioned"
+    "type": "PartTime / Commissioned",
+    "vehicle": null
   }
 ]

@@ -1,12 +1,11 @@
 package employee;
 
-public class PartTime {
+public abstract class PartTime extends Employee{
 
-    float salary;
-    float bonus;
+    double rate, hWorked;
 
-    public float calculateearning()
+    public double calculateearning()
     {
-        return salary+bonus;
+        return 0;
     }
 }
